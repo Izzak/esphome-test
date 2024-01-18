@@ -28,10 +28,10 @@ void CaptivePortal::handle_config(AsyncWebServerRequest *request) {
 void CaptivePortal::handle_wifisave(AsyncWebServerRequest *request) {
   std::string ssid = request->arg("ssid").c_str();
   std::string psk = request->arg("psk").c_str();
-  id(ssid_text).publish_state("Hello World");
-  std::string val = id(ssid_text).state;
-  ESP_LOGI(TAG, "Value of my sensor: %s", val.c_str());
-  ESP_LOGI(TAG, "Captive Postal Requested WiFi Settings Change:");
+  auto call = id(ssid_text).make_call();
+  call.set_value("Hello World");
+  call.perform();
+  ESP_LOGI(TAG, "Captive Portal Requested WiFi Settings Change:");
   ESP_LOGI(TAG, "  SSID='%s'", ssid.c_str());
   ESP_LOGI(TAG, "  Password=" LOG_SECRET("'%s'"), psk.c_str());
   wifi::global_wifi_component->save_wifi_sta(ssid, psk);
