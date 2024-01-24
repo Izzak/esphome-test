@@ -4,6 +4,8 @@
 #include "esphome/components/text_sensor/text_sensor.h"
 #include "esphome/components/wifi/wifi_component.h"
 
+#include <cinttypes>
+
 #include <algorithm>
 #include <utility>
 #include "lwip/dns.h"
@@ -14,6 +16,14 @@
 #include "esphome/core/helpers.h"
 #include "esphome/core/log.h"
 #include "esphome/core/util.h"
+
+#ifdef USE_CAPTIVE_PORTAL
+#include "esphome/components/captive_portal/captive_portal.h"
+#endif
+
+#ifdef USE_IMPROV
+#include "esphome/components/esp32_improv/esp32_improv_component.h"
+#endif
 
 namespace esphome {
 namespace wifi_info {
