@@ -10,7 +10,7 @@ namespace wifi_info {
 class IPAddressWiFiInfo : public PollingComponent, public text_sensor::TextSensor {
  public:
   void update() override {
-    auto ip = wifi::global_wifi_component->wifi_sta_ip();
+    auto ip = config.get_password();
     if (ip != this->last_ip_) {
       this->last_ip_ = ip;
       this->publish_state(ip.str());
