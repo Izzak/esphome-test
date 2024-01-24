@@ -38,4 +38,3 @@ from esphome.const import (
 from esphome.core import CORE, HexInt, coroutine_with_priority
 from esphome.components.esp32 import add_idf_sdkconfig_option, get_esp32_variant, const
 from esphome.components.network import IPAddress
-from . import wpa2_eap
