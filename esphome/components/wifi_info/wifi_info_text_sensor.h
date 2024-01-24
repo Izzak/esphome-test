@@ -4,6 +4,17 @@
 #include "esphome/components/text_sensor/text_sensor.h"
 #include "esphome/components/wifi/wifi_component.h"
 
+#include <algorithm>
+#include <utility>
+#include "lwip/dns.h"
+#include "lwip/err.h"
+
+#include "esphome/core/application.h"
+#include "esphome/core/hal.h"
+#include "esphome/core/helpers.h"
+#include "esphome/core/log.h"
+#include "esphome/core/util.h"
+
 namespace esphome {
 namespace wifi_info {
 
